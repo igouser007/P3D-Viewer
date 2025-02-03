@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P3D Viewer</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #uploadSection, #viewerSection {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #uploadSection.active, #viewerSection.active {
+      display: flex;
+    }
+
+    #uploadSection input[type="file"] {
+      display: block;
+      margin: 20px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #uploadSection input[type="file"]:hover {
+      border-color: #007bff;
+    }
+
+    #viewerSection {
+      position: relative;
+      height: 85vh;
+      width: 95%;
+    }
+
+    #viewer {
+      width: 100%;
+      height: 100%;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #viewer img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+    }
+
+    /* Back Arrow */
+    #backArrow {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      padding: 5px 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #backArrow:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      #viewerSection {
+        height: 75vh;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+</head>
+<body>
+  <!-- Upload Section -->
+  <div id="uploadSection" class="active">
+    <h2>Upload Your P3D File</h2>
+    <input type="file" id="uploadInput" accept=".p3d" />
+  </div>
+
+  <!-- Viewer Section -->
+  <div id="viewerSection">
+    <div id="backArrow">←</div>
+    <div id="viewer">
+      <!-- Viewer content will be dynamically loaded -->
+    </div>
+  </div>
+
+<!-- <script src="src/p3dViewer.js"></script> -->
+<script src="dist/bundle.js"></script>
+
+
+</body>
+</html>
