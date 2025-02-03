@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P3D Viewer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+  <!-- Root element for React or any framework if needed -->
+  <div id="root"></div>
+
+  <!-- Upload section -->
+  <div id="uploadSection" class="active">
+    <!-- Upload section content -->
+    <input type="file" id="uploadInput" />
+  </div>
+
+  <!-- Viewer section -->
+  <div id="viewerSection">
+    <!-- Viewer content will be added here -->
+    <div id="viewer"></div>
+    <button id="backArrow" style="display: none;">Back</button>
+  </div>
+
+  <!-- Ensure script is loaded after the DOM is ready -->
+  <script>
+    window.onload = function() {
+      const script = document.createElement("script");
+      script.src = "bundle.js";
+      document.body.appendChild(script);
+    };
+  </script>
+</body>
+</html>
